@@ -1,0 +1,49 @@
+<html>
+
+<head>
+Javascript Sample page <br>
+</head>
+
+<script type="text/javascript" src="http://api.eventful.com/js/api">
+
+</script>
+
+<script type="text/javascript">
+
+//here is sample
+
+function getEvents(){
+        var oArgs = {
+            app_key:"2CH4skmC8kN48Lr4"
+            location:"San+Diego",
+            date:"Today",
+            sort_order:"popularity",
+            page_size:1
+        };
+EVDB.API.call("/events/search", oArgs, function(oData)
+        {
+   document.getElementById("eventAPIreturn").innerHTML = oData.events.event.title;
+        });
+}
+
+</script>
+
+
+
+<body>
+
+Run Sample api searches <br><br>
+  <div id="dropdown-menu">
+    <div id="user-location">
+      <button id="launch-search">search here</button>
+    </div>
+  </div>
+  
+  <p id="random-lyric"></p>
+
+  <div id="eventAPIreturn">
+  </div>
+</body>
+
+
+</html>

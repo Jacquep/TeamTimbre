@@ -1,5 +1,5 @@
   // Initialize Firebase
-  //Brian's the man 
+  //Brian's the man but so is Kayla
   var config = {
     apiKey: "AIzaSyCWd9bfk2Z2wvy4nU3o3ahdJpO9KLTvayo",
     authDomain: "timbre-ee3e8.firebaseapp.com",
@@ -12,23 +12,34 @@
   // Create a variable to reference the database
  var database = firebase.database();
 
-//url request to the eventful API
- var eventfulURL = "http://api.eventful.com/json/events/search?app_key=2CH4skmC8kN48Lr4&q=music"
+
+function launchSearch(){
+  //
+  $("#launch-search").on("click",function(){
+
+  //url request to the eventful API(this will access our events)
+  var eventfulURL ="http://api.eventful.com/json/events/search?app_key=2CH4skmC8kN48Lr4?q=music&l=92109&within=10&units=miles";
+  
+  //grab our user input by building an onclick submit to the API
+  //create our dropdown menu access
+    //1. create variables to hold our San Diego regions 
+        //construct this selection
+    //2. on select we will send our request to the API
 
 //run ajax to send a request to the eventful server
-	$.ajax({
+	   $.ajax({
    		url: eventfulURL,
    		method: "GET"
-   	
+   	  })
+   
 //.done function will run what we need to run after we get the API data
-		.done(function(response) {
-		console.log(response);
+		    .done(function(response) {
+		    console.log(response);
 //in here put all the gif display/reporting that will happen
-		var results  = response.data 
+		    var results  = response.data 
 
-			$("#eventAPIReturn").on("click", function(){
-				return results
-			});	
-		})
-
-	});
+        console.log(results);
+		    });
+    });
+}
+launchSearch();
