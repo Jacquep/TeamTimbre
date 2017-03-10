@@ -19,7 +19,7 @@ function launchSearch(){
   $("#launch-search").on("click",function(){
 
   //url request to the eventful API(this will access our events)
-  var eventfulURL ="https://api.eventful.com/json/events/search?app_key=2CH4skmC8kN48Lr4?q=music&l=92109&within=10&units=miles";
+  var eventfulURL ="http://api.eventful.com/json/events/search?app_key=2CH4skmC8kN48Lr4&q=music"
   
   //grab our user input by building an onclick submit to the API
       //must reference the parameters: location by zip?, music, 
@@ -45,7 +45,7 @@ function launchSearch(){
         //run through the results page
         for (var i = 0; i < results.length; i++) {
 
-          
+
 
         }
 
