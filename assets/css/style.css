@@ -1,0 +1,75 @@
+header {
+
+	background-color: #0f243e;
+	color: white;
+}
+
+nav { 
+
+	display: flex;
+   	flex-direction: row-reverse;	
+}
+
+
+body {
+
+	background-color: #d9d9d9;
+
+	
+}
+
+.nav-masthead .nav-link {
+ 
+  font-weight: bold;
+  color:  rgb(253, 158, 158);
+  background-color: #0f243e;
+  
+}
+
+.flexrow {
+
+	flex-direction: row;
+	display: flex;
+}
+
+.user-location {
+
+	width: 300px;
+}
+
+.event-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-list {
+	flex-direction: row;
+	display: flex;
+
+}
+
+#heart {
+
+    display: flex;
+    align-items: center;
+    color:red;
+    font-size:50px;
+    text-decoration: none;
+}
+
+.event-detail {
+
+	margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
