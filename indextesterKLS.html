@@ -1,49 +1,69 @@
 <html>
-
 <head>
-Javascript Sample page <br>
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
-
+Javascript Sample page <br>
 <script type="text/javascript" src="http://api.eventful.com/js/api">
-
 </script>
-
 <script type="text/javascript">
-
-//here is sample
-
-function getEvents(){
-        var oArgs = {
-            app_key:"2CH4skmC8kN48Lr4"
-            location:"San+Diego",
-            date:"Today",
-            sort_order:"popularity",
-            page_size:1
-        };
-EVDB.API.call("/events/search", oArgs, function(oData)
-        {
-   document.getElementById("eventAPIreturn").innerHTML = oData.events.event.title;
-        });
+function show_alert()
+{
+  var oArgs = {
+            app_key:"2CH4skmC8kN48Lr4",
+            id: "20218701",
+            page_size: 10,
+  };
+  EVDB.API.call("/events/get", oArgs, function(oData) {
+      // Note: this relies on the custom toString() methods below
+    });
 }
+function show_alert2(){
+   var oArgs = {
+      app_key: "2CH4skmC8kN48Lr4",
+      q: "music",
+      //where: "San Diego", 
+      postal_code: "92109",
+      page_size: 10,
+      sort_order: "popularity",
+   };
 
-</script>
-
-
-
-<body>
-
-Run Sample api searches <br><br>
-  <div id="dropdown-menu">
-    <div id="user-location">
-      <button id="launch-search">search here</button>
-    </div>
-  </div>
+   EVDB.API.call("/events/search", oArgs, function(oData) {
+    var app = oData;
+    console.log(app)
+    console.log(app.events.event[0].city_name);
+    console.log(app.events.event[0].venue_name);
+    var city = app.events.event[0].city_name;
+    var venue = app.events.event[0].venue_name;
+    var title = app.events.event[0].title;
+    var artist = app.events.event[0].performers.performer.name;
+    var when = app.events.event[0].start_time;
+    var url = app.events.event[0].url;
+    var imageStr = app.events.event[0].image.medium.url;
+    console.log(city);
+    $("#test").html("<br>Event Location : " + city + "<br>" );
+    
+    $("#test1").html("<br>" + venue + "<br>" );
+    $("#test2").html("<br>" + artist + "<br>" );
+    $("#test3").html("<br>" + when + "<br>" );
+    $("#test4").html("<br>" + url + "<br>" );
+    
+    $("#test5").append("<img src='" + imageStr + "' width='200'>");
+   
+    
+      // Note: this relies on the custom toString() methods below
+    });
   
-  <p id="random-lyric"></p>
-
-  <div id="eventAPIreturn">
-  </div>
+}
+</script>
+<body>
+Run Sample api searches <br><br>
+<input type="button" onclick="show_alert()" value="Query #1 " /> <br>
+<input type="button" onclick="show_alert2()" value="Query #2 " /> <br>
+<div id="test1"></div>
+<div id="test2"></div>
+<div id="test3"></div>
+<div id="test4"></div>
+<div id="test5"></div>
+<script src="https://code.jquery.com/jquery.js"></script>
 </body>
-
-
 </html>
