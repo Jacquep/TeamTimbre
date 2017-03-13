@@ -1,4 +1,4 @@
-  // Initialize Firebase
+// Initialize Firebase
   //Brian's the man but so is Kayla
   var config = {
     apiKey: "AIzaSyCWd9bfk2Z2wvy4nU3o3ahdJpO9KLTvayo",
@@ -29,13 +29,14 @@ function show_alert(){
   };
   EVDB.API.call("/events/get", oArgs, function(oData) {
       // Note: this relies on the custom toString() methods below
-  });
+    });
 }
-function clickBtn(){
+function clickBtn()
+{
    var oArgs = {
       app_key: "2CH4skmC8kN48Lr4",
       q: "music",
-      where: "Solana Beach", 
+      where: "San Diego", 
       //postal_code:"92109",
       page_size: 10,
       sort_order: "popularity",
@@ -52,37 +53,20 @@ function clickBtn(){
 
 
     for (var i = 0; i < app.total_items - 1; i++) {
-
-      // var mynumber = 0;
-      // if(1==1) {
-      //   mynumber = 1;
-      // }
-
-      // var mynumber = (1==1) ? 1 : 0;
-
-
-      var data = {
-        city: app.events.event[i].city_name ? app.events.event[i].city_name : "none",
-        venue: app.events.event[i].venue_name, 
-        title: app.events.event[i].title ,
-        //artist: app.events.event[i].performers.performer.name,//this goes to itunes
-        when: app.events.event[i].start_time,
-        //url: app.events.event[0].url,
-        imageStr: app.events.event[i].image.medium.url
-      };
-
-      //If the city name is there...
-      //if (app.events.event[i].city_name != null){
-        //...add the missing datas
-
-    }
-
-
+      //QA
+      //if (app.events.event[i].city_name === null)
 
     //my event object information
     //var eventListing 
 
-    gData.push(data);
+    gData.push({
+    city: app.events.event[i].city_name,
+    venue: app.events.event[i].venue_name,
+    title: app.events.event[i].title,
+    //artist: app.events.event[i].performers.performer.name,//this goes to itunes
+    when: app.events.event[i].start_time,
+    //url: app.events.event[0].url,
+    imageStr: app.events.event[i].image.medium.url});
 
   
 
@@ -100,9 +84,9 @@ function clickBtn(){
     //}
       // Note: this relies on the custom toString() methods below
 
+    }
 
-
-  });
+    });
 
 }
 
@@ -127,10 +111,6 @@ function launchSearch(){
     //1. create variables to hold/call our San Diego regions >DEFINE these how??? 
         //construct this selection
     //2. on select we will send our request to the API
-
-
-
-
 
 //run ajax to send a request to the eventful server
 	   $.ajax({
