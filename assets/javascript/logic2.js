@@ -13,14 +13,12 @@
  var database = firebase.database();
 
 
-
+//this make our returned data show up in a global array
 var gData = [];
 
 
-
-
 //ACCESSING THE API
-//i dont know what this is?
+//i dont know what this is but it makes my API work
 function show_alert(){
   var oArgs = {
             app_key:"2CH4skmC8kN48Lr4",
@@ -28,20 +26,24 @@ function show_alert(){
             page_size: 10,
   };
   EVDB.API.call("/events/get", oArgs, function(oData) {
-      // Note: this relies on the custom toString() methods below
-    });
+    // Note: this relies on the custom toString() methods below:still dont know what it means but paranoid to remove
+  });
 }
-function clickBtn()
-{
+//setting my arguments to return data
+function clickSanDiegoMetro(){
    var oArgs = {
       app_key: "2CH4skmC8kN48Lr4",
       q: "music",
       where: "San Diego", 
-      //postal_code:"92109",
+      postal_code:"92109",
+      within: 20,
+      units: "miles",
       page_size: 10,
       sort_order: "popularity",
    };
+   
 
+   //api call plus  console checking of info
    EVDB.API.call("/events/search", oArgs, function(oData) {
     var app = oData;
     console.log(app)
@@ -51,100 +53,106 @@ function clickBtn()
     console.log(app.total_items); 
     
 
-
+    //iterate through the search results an return the results as objects into a global array
     for (var i = 0; i < app.total_items - 1; i++) {
-      //QA
-      //if (app.events.event[i].city_name === null)
-
-    //my event object information
-    //var eventListing 
 
     gData.push({
-    city: app.events.event[i].city_name,
+    city: app.events.event[i].city_name ? app.events.event[i].city_name : "null",
     venue: app.events.event[i].venue_name,
     title: app.events.event[i].title,
     //artist: app.events.event[i].performers.performer.name,//this goes to itunes
     when: app.events.event[i].start_time,
     //url: app.events.event[0].url,
-    imageStr: app.events.event[i].image.medium.url});
-
-  
-
+    imageStr: app.events.event[i].image.medium.url}),
+    
     console.log(gData[i]);
 
-
-    $("#test").html("<br>Event Location : " + gData[i].city + "<br>" );
-    
-    $("#test1").html(gData[i].when);
-    $("#test2").html(gData[i].title);
-    $("#test3").html(gData[i].venue);
-    //$("#test4").html("<br>" + eventListing.url + "<br>" );
-    $("#test5").append("<img src='" + gData[i].imageStr + "' width='180' height='180'>");
    
-    //}
-      // Note: this relies on the custom toString() methods below
 
+
+    //moment date/time conversion moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
+    //this isnt doing anything  -_-
+    var displayDate = moment().format(gData[i].when, "LLLL");
+    console.log(displayDate);
+    console.log(gData[i].when);
+
+
+    $("#city_search").html("<br>Event Location : " + gData[i].city + "<br>" );
+    
+    $("#data-date").html(displayDate);
+    $("#data-eventName").html(gData[i].title);
+    $("#data-venue").html(gData[i].venue);
+    //$("#test4").html("<br>" + eventListing.url + "<br>" );
+    $("#data-image").append("<img src='" + gData[i].imageStr + "' width='180' height='180'>");
     }
-
-    });
-
-}
-
-
-
-
-
-
-
-
-function launchSearch(){
-  //
-  $("#launch-search").on("click",function(){
-
-  //url request to the eventful API(this will access our events)
-  var eventfulURL ="http://api.eventful.com/json/events/search?app_key=2CH4skmC8kN48Lr4&q=music"
-  
-  //grab our user input by building an onclick submit to the API
-      //must reference the parameters: location by zip?, music, 
-
-  //create our dropdown menu access
-    //1. create variables to hold/call our San Diego regions >DEFINE these how??? 
-        //construct this selection
-    //2. on select we will send our request to the API
-
-//run ajax to send a request to the eventful server
-	   $.ajax({
-   		url: eventfulURL,
-   		method: "GET"
-   	  })  
-//.done function will run what we need to run after we get the API data
-		    .done(function(response) {
-		    console.log(response);
-//in here put all the gif display/reporting that will happen
-		    var results  = response.data 
-        console.log(results);
-
-//create a loop to iterate through out return
-        //run through the results page
-        for (var i = 0; i < results.length; i++) {
-
-
-
-        }
-
-//I want to return each search result as an eventObject
-        var eventObject ={
-          date: "",
-          artist:"",
-          venue:"",
-          eventLink:"",
-          
-          artistImg:"",
-          songLink:""
-        }
-
-
-		    });
   });
 }
-launchSearch();
+
+function clickNorthCoastal(){
+   var oArgs = {
+      app_key: "2CH4skmC8kN48Lr4",
+      q: "music",
+      where: "San Diego", 
+      postal_code:"92011",
+      within: 10,
+      units: "miles",
+      page_size: 10,
+      sort_order: "popularity",
+   };
+   
+
+   //api call plus  console checking of info
+   EVDB.API.call("/events/search", oArgs, function(oData) {
+    var app = oData;
+    console.log(app)
+    console.log(app.events.event[0].city_name);
+    console.log(app.events.event[0].venue_name);
+    console.log(app.events.event[0].postal_code);
+    console.log(app.total_items); 
+    
+
+    //iterate through the search results an return the results as objects into a global array
+    for (var i = 0; i < app.total_items - 1; i++) {
+
+    gData.push({
+    city: app.events.event[i].city_name ? app.events.event[i].city_name : "null",
+    venue: app.events.event[i].venue_name,
+    title: app.events.event[i].title,
+    //artist: app.events.event[i].performers.performer.name,//this goes to itunes
+    when: app.events.event[i].start_time,
+    //url: app.events.event[0].url,
+    imageStr: app.events.event[i].image.medium.url}),
+    
+    console.log(gData[i]);
+
+   
+
+
+    //moment date/time conversion moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
+    //this isnt doing anything  -_-
+    var displayDate = moment().format(gData[i].when, "LLLL");
+    console.log(displayDate);
+    console.log(gData[i].when);
+
+
+    $("#city_search").html("<br>Event Location : " + gData[i].city + "<br>" );
+    
+    $("#data-date").html(displayDate);
+    $("#data-eventName").html(gData[i].title);
+    $("#data-venue").html(gData[i].venue);
+    //$("#test4").html("<br>" + eventListing.url + "<br>" );
+    $(".rounded-circle").append("<img src='" + gData[i].imageStr + "' width='180' height='180'>");
+  }
+    });
+
+    
+
+}
+
+
+
+
+
+
+
+

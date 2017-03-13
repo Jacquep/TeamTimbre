@@ -32,6 +32,7 @@ function show_alert2(){
     console.log(app)
     console.log(app.events.event[0].city_name);
     console.log(app.events.event[0].venue_name);
+
     var city = app.events.event[0].city_name;
     var venue = app.events.event[0].venue_name;
     var title = app.events.event[0].title;
@@ -54,11 +55,39 @@ function show_alert2(){
     });
   
 }
+
+
+
+//PASTE HERE
+/* EVDB JS API (EVDB.API) 0.4.1 / develop@eventful.com / 2016-01-22
+
+    See http://api.eventful.com/js/api.changes for a changelog.
+
+    Instructions:
+        - Include the EVDB JS API script in your HTML document like so:
+    <script type="text/javascript" src="http://api.eventful.com/js/api">
+        - Call the EVDB.API.call() function as specified below.
+
+    Format of API Call:
+
+        EVDB.API.call(sMethod, args, fnCallback);
+
+        - sMethod is the API method to call.
+            see: http://api.eventful.com/docs
+        - args is a string or object containing the arguments to pass to the API
+            - string: "x=1&y=2&z=3"
+            - object: {x: 1, y: 2, z:3}
+        - fnCallback is a reference to a function taking a single argument
+            - The only argument to the function will be the data passed back
+                from the API in JS data structures (objects, arrays, etc.).*/
+
+
+      
 </script>
 <body>
 Run Sample api searches <br><br>
 <input type="button" onclick="show_alert()" value="Query #1 " /> <br>
-<input type="button" onclick="show_alert2()" value="Query #2 " /> <br>
+<input type="button" onclick="show_alert2()" value="search" /> <br>
 <div id="test1"></div>
 <div id="test2"></div>
 <div id="test3"></div>

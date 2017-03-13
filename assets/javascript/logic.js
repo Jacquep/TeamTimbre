@@ -1,16 +1,16 @@
   // Initialize Firebase
   //Brian's the man but so is Kayla
-  var config = {
-    apiKey: "AIzaSyCWd9bfk2Z2wvy4nU3o3ahdJpO9KLTvayo",
-    authDomain: "timbre-ee3e8.firebaseapp.com",
-    databaseURL: "https://timbre-ee3e8.firebaseio.com",
-    storageBucket: "timbre-ee3e8.appspot.com",
-    messagingSenderId: "457573350640"
-  };
-  firebase.initializeApp(config);
+ // var config = {
+   // apiKey: "AIzaSyCWd9bfk2Z2wvy4nU3o3ahdJpO9KLTvayo",
+   // authDomain: "timbre-ee3e8.firebaseapp.com",
+   // databaseURL: "https://timbre-ee3e8.firebaseio.com",
+   // storageBucket: "timbre-ee3e8.appspot.com",
+   // messagingSenderId: "457573350640"
+  //};
+ // firebase.initializeApp(config);
 
   // Create a variable to reference the database
- var database = firebase.database();
+ //var database = firebase.database();
 
 
 
