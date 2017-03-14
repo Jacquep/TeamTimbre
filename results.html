@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
 	</head>
 	<body>
 		<header class="container-fluid">
@@ -31,6 +33,7 @@
 						    <a class="dropdown-item" href="#">City</a>
 						    <a class="dropdown-item" href="#">City</a>
 						    <a class="dropdown-item" href="#">City</a>
+
 						  </div>
 					 	</div>					
 					</div>
@@ -48,11 +51,18 @@
 							<p>Observatory North Park</p>
 						</div>
 						<div class="col-6 event-list-item">
-							<p>March 9th, 2017</p>
-							<img class="rounded-circle" src="assets/metal.png">
-							<p>MARGO PRICE</p>
-							<p>Observatory North Park</p>
+							<p id="data-date"</p>
+							<img class="rounded-circle" src="">
+							<p id="data-eventName"></p>
+							<p id="data-venue"></p>
 						</div>
+						<div class="col-6 event-list-item">
+							<p id="data-date"</p>
+							<img class="rounded-circle" src="">
+							<p id="data-eventName"></p>
+							<p id="data-venue"></p>
+						</div>
+
 					</section>
 					<section class="col-6 mt-3 hidden" id="record-player">
 						<div class="col-10 push-1 record">
@@ -74,7 +84,7 @@
 									<p class="event-detail">Venue:</p><span></span>
 								</div>
 								<div>
-									<p class="event-detail">More:</p><span></span>
+									<p class="event-detail">More:</p><span id="citySearch"></span>
 								</div>
 							</section>
 						</div>
@@ -104,6 +114,10 @@
 
 
 		<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+
+		<script type="text/javascript" src="assets/javascript/logic2.js"></script>
+		<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
+
 		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
