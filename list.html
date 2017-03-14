@@ -4,29 +4,75 @@
 		<title>Timbre</title>
 		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	</head>
 	<body>
+		<header class="container-fluid back-nav">
+			<div class="row top">
+				<img src="assets/logo.png" class="col-3 logo">
+				<nav class="nav nav-masthead col-9">
+					<a id="myList" class="nav-link" href="#myList"><img src="assets/metal.png" width="40" height="40">Back to listings</a>
+				</nav>
+			</div>
+		</header>
 
+		<main class="container col-8 main-list">
+			<div class="eventBlock  new" itemscope="" itemtype="http://schema.org/Event">
+			    <div class="eventDate">
+			        <div class="eventDate-left"></div>
+				    <div class="eventDate-month">Mar</div>
+				    <div class="eventDate-weekday">12</div>
+				    <div class="eventDate-day">Sun</div>
+			        <div class="eventTime">6:00 PM</div>
+					<div class="eventDate-right"></div>
+		        	<meta itemprop="startDate" content="2017-03-12T18:00:00-05:00">
+	            </div>
+			    <div class="eventPhoto">
+				    <a href="calendar.php?event_id=3203">
+				    	<img src="assets/metal.png" alt="" width="160" border="0">
+				    </a>
+			    </div>   
+			    <div class="eventContent">
+					<div class="eventPromoter">Soda Bar &amp; Casbah Presents @ The Irenic&nbsp;</div>   
+			    	<div class="eventHeadliner" itemprop="name">THE MENZINGERS</div>
+					<div class="eventSupport1">JEFF ROSENSTOCK</div>
+					<div class="eventSupport2">ROZWELL KID</div>
+					<div class="eventDescriptionShort" itemprop="description">@ THE IRENIC (3090 Polk Ave.) –– ALL AGES</div>
+				</div>	
+			    <div style="clear: both;"></div>
+			</div>
 
-	  
+			<div class="eventBlock  new alt" itemscope="" itemtype="http://schema.org/Event">
+			    <div class="eventDate">
+			        <div class="eventDate-left"></div>
+				    <div class="eventDate-month">Mar</div>
+				    <div class="eventDate-weekday">12</div>
+				    <div class="eventDate-day">Sun</div>
+			        <div class="eventTime">6:00 PM</div>
+					<div class="eventDate-right"></div>
+		        	<meta itemprop="startDate" content="2017-03-12T18:00:00-05:00">
+	            </div>
+			    <div class="eventPhoto">
+				    <a href="calendar.php?event_id=3203">
+				    	<img src="assets/metal.png" alt="" width="160" border="0">
+				    </a>
+			    </div>
+			    <meta itemprop="image" content="/images/upload/sodabar_eventcalendar_3203_1.png">    
+			    <div class="eventContent">
+					<div class="eventPromoter">Soda Bar &amp; Casbah Presents @ The Irenic&nbsp;</div>
+			    	<meta itemprop="url" content="http://www.sodabarmusic.com/calendar.php?event_id=3203">    
+			    	<div class="eventHeadliner" itemprop="name">THE MENZINGERS</div>
+					<div class="eventSupport1">JEFF ROSENSTOCK</div>
+					<div class="eventSupport2">ROZWELL KID</div>
+					<div class="eventDescriptionShort" itemprop="description">@ THE IRENIC (3090 Polk Ave.) –– ALL AGES</div>
+				</div>	
+			    <div style="clear: both;"></div>
+			</div>
 
+		</main>
 
-		
-		
-
-	 	<div id="eventAPIreturn"></div>
-
-
-
-
-
-
-
-
-
+			<div id="eventAPIreturn"></div>
 
 		<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 		<script type="text/javascript" src="logic.js"></script>

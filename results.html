@@ -7,13 +7,11 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
 		<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
 	</head>
 	<body>
-
 		<header class="container-fluid">
-
 			<div class="row top">
 				<img src="assets/logo.png" class="col-3 logo">
 				<nav class="nav nav-masthead col-9">
@@ -29,22 +27,24 @@
 						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alphabet City
 						  </button>
 						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <a class="dropdown-item" onclick="clickSanDiegoMetro()" href="#">San Diego Metro</a>
-						    <a class="dropdown-item" onclick="clickNorthCoastal()" href="#">North County Costal</a>
-						    <a class="dropdown-item" href="#">Northpark</a>
+						    <a class="dropdown-item" href="#">City</a>
+						    <a class="dropdown-item" href="#">City</a>
+						    <a class="dropdown-item" href="#">City</a>
+						    <a class="dropdown-item" href="#">City</a>
+						    <a class="dropdown-item" href="#">City</a>
+						    <a class="dropdown-item" href="#">City</a>
+
 						  </div>
 					 	</div>					
 					</div>
 				</div>
 			</div>
 		</header>
-
-
 		<main>
 			<div class="container-fluid">
 				<div class="row mt-3">
-					<section class="col-6 event-list" id="event-list">
-						<div class="col-6 event-list-item">
+					<section class="col-6 push-3 event-list" id="event-list">
+						<div class="col-6 event-list-item" onclick="showRecordPlayer()">
 							<p>March 9th, 2017</p>
 							<img class="rounded-circle" src="assets/metal.png">
 							<p>MARGO PRICE</p>
@@ -64,12 +64,12 @@
 						</div>
 
 					</section>
-					<section class="col-6 mt-3">
-						<div class="col-10 push-1 record" id="record-player">
+					<section class="col-6 mt-3 hidden" id="record-player">
+						<div class="col-10 push-1 record">
 							<img src="assets/turntable.png" height="300px" width="300px">	
 						</div>
 						<div class="col-12 flexrow">
-							<a class="col-2" id="heart" href="#heart"><i class="fa fa-heart" aria-hidden="true"></i></a>
+							<a class="col-2" id="heart" href="#heart"><i class="fa fa-heart" onclick="showMyList()"></i></a>
 							<section class="col-10">
 								<div>
 									<p class="event-detail">Artist:</p><span></span>
@@ -89,61 +89,22 @@
 							</section>
 						</div>
 					</section>
-				
-
-					<!-- <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
-					  <header class="bmd-layout-header">
-					    <div class="navbar navbar-light bg-faded">
-					      <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
-					        <span class="sr-only">Toggle drawer</span>
-					        
-					      </button>
-					      <ul class="nav navbar-nav">
-					        <li class="nav-item">Title</li>
-					      </ul>
-					    </div>
-					  </header>
-					  <div id="dw-s2" class="bmd-layout-drawer bg-faded">
-					    <header>
-					      <a class="navbar-brand">Title</a>
-					    </header>
-					    <ul class="list-group">
-					      <a class="list-group-item">Link 1</a>
-					      <a class="list-group-item">Link 2</a>
-					      <a class="list-group-item">Link 3</a>
-					    </ul>
-					  </div>
-					 </div> -->
-
 					<section class="col-6" id="my-list-drawer">
-						<header class="col-6"> 
+						<header class="col-12"> 
 							<a id="myList" class="nav-link" href="#myList"><img src="assets/metal.png" width="40" height="40">MY LIST</a>
 						</header>
-						<div class="col-3"><img class="rounded-circle" src="assets/metal.png"></div>
-						<div class="col-9">
-							<h1 id="title"></h1>
-							<h3 id="date"></h3>
-							<h3 id="venue"></h3>
+						<div class="row liked">
+							<div class="col-3"><img class="rounded-circle" src="assets/metal.png"></div>
+							<div class="col-9" id="liked">
+								<h3 id="title">Band</h3>
+								<h4 id="date">March 9th, 2017</h4>
+								<h4 id="venue">Casbah</h4>
+							</div>
 						</div>
 					</section>
-
 				</div>
 			</div>	
 		</main>
-
-		
-
-
-
-
-
-
-		
-		
-
-	 	
-
-
 
 
 
@@ -153,17 +114,23 @@
 
 
 		<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+
 		<script type="text/javascript" src="assets/javascript/logic2.js"></script>
 		<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
+
 		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 		<script src="https://cdn.rawgit.com/HubSpot/tether/v1.3.4/dist/js/tether.min.js"></script>
-		<script src="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.iife.min.js"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
 		<script>
-  		$('body').bootstrapMaterialDesign();
-		</script>
+			//show record-player when user clicks event
+			function showRecordPlayer() {
+			    document.getElementById("record-player").style.display = "block";
+			}
+			//show my-list when user clicks heart
+			function showMyList() {
+			    document.getElementById("my-list-drawer").style.display = "block";
+			    }
+		</script>	
 	</body>
 </html>
