@@ -29,7 +29,7 @@
 						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alphabet City
 						  </button>
 						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <a class="dropdown-item" onclick="clickSanDiegoMetro()" href="#">San Diego Metro</a>
+						    <a class="dropdown-item" id="metro" onclick="clickSanDiegoMetro()" href="#">San Diego Metro</a>
 						    <a class="dropdown-item" onclick="clickNorthCoastal()" href="#">North County Costal</a>
 						    <a class="dropdown-item" href="#">Northpark</a>
 						  </div>
@@ -52,9 +52,12 @@
 						</div>
 						<div class="col-6 event-list-item">
 							<p id="data-date"</p>
-							<img class="rounded-circle" src="">
+							
 							<p id="data-eventName"></p>
 							<p id="data-venue"></p>
+						</div>
+						<div>
+							<img src="" id="dImg">
 						</div>
 						<div class="col-6 event-list-item">
 							<p id="data-date"</p>
