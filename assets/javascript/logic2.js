@@ -22,8 +22,8 @@ function clickSanDiegoMetro(){
       app_key: "2CH4skmC8kN48Lr4",
       q: "music",
       where: "San Diego", 
-      postal_code:"92109",
-      within: 20,
+      postal_code:"92101",
+      within: 10,
       units: "miles",
       page_size: 20,
       sort_order: "popularity"

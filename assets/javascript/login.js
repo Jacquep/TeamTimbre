@@ -12,24 +12,38 @@
    // Create a variable to reference the database
   var database = firebase.database();
 
+
+//show region dropdown when user clicks sign-in button
+      function clickLogin() {
+      event.preventDefault();
+        document.getElementById("list-link").style.display = "block";
+        document.getElementById("user-location").style.display = "block";
+        document.getElementById("validate").style.display = "none";
+      }
+
+
+
+
+
 //moving this to the firebase storage
  $(document).ready(function() {
      //login information
      $("#logInBtn").on("click", function(event) {
        event.preventDefault();
-       var email = $("#email").val();
-       var password = $("#password").val();
-         alert("Password : " + password );
+       //var userName= $("#name").val();
+       var email = $("#Email").val();
+       var password = $("#Password").val();
           alert("Email : " + email );
         //remember this logs this info in firebase in the AUTHENTICATION not the DATABASE7yhh
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function (user) {
           //user.uid
-          //database()
-          firebase.ref('users/' + user.uid).update({
+          
+          database.ref('users/' + user.uid).update({
             //name etc
           })
         })
+        
         .catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;
