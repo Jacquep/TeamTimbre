@@ -50,45 +50,23 @@ function clickBtn(){
     console.log(app.total_items); 
     
 
+for (var i = 0; i < app.total_items - 1; i++) {
+      //QA
+      //if (app.events.event[i].city_name === null)
 
-    for (var i = 0; i < app.total_items - 1; i++) {
-
-      // var mynumber = 0;
-      // if(1==1) {
-      //   mynumber = 1;
-      // }
-
-      // var mynumber = (1==1) ? 1 : 0;
-
-
-      var data = {
-        city: app.events.event[i].city_name ? app.events.event[i].city_name : "none",
-        venue: app.events.event[i].venue_name, 
-        title: app.events.event[i].title ,
-        //artist: app.events.event[i].performers.performer.name,//this goes to itunes
-        when: app.events.event[i].start_time,
-        //url: app.events.event[0].url,
-        imageStr: app.events.event[i].image.medium.url
-      };
-
-      //If the city name is there...
-      //if (app.events.event[i].city_name != null){
-        //...add the missing datas
-
-    }
-
-
-
-    //my event object information
-    //var eventListing 
-
-    gData.push(data);
+    gData.push({
+    city: app.events.event[i].city_name,
+    venue: app.events.event[i].venue_name,
+    title: app.events.event[i].title,
+    //artist: app.events.event[i].performers.performer.name,//this goes to itunes
+    when: app.events.event[i].start_time,
+    //url: app.events.event[0].url,
+    imageStr: app.events.event[i].image.medium.url});
 
   
 
     console.log(gData[i]);
-
-
+    }
     $("#test").html("<br>Event Location : " + gData[i].city + "<br>" );
     
     $("#test1").html(gData[i].when);
