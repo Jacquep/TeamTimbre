@@ -22,6 +22,7 @@
       }
 
 
+//NOTE!!!!I set it back to email and password bc the firebase auth is already setup. can add back name as we discuss
 
 
 
@@ -43,7 +44,7 @@
             //name etc
           })
         })
-        
+
         .catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;

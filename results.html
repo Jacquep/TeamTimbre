@@ -30,7 +30,7 @@
 
 						    <a class="dropdown-item" id="metro" onclick="clickSanDiegoMetro()" href="#">San Diego Metro</a>
 						    <a class="dropdown-item" onclick="clickNorthCoastal()" href="#">North County Costal</a>					
-						    <a class="dropdown-item" href="#">City</a>
+						    <a class="dropdown-item" onclick="clickNorthInland()" href="#">North County Inland</a>
 						    <a class="dropdown-item" href="#">City</a>
 						    <a class="dropdown-item" href="#">City</a>
 						    <a class="dropdown-item" href="#">City</a>
@@ -48,25 +48,45 @@
 				<div class="row mt-3">
 					<section class="col-6 push-3 event-list" id="event-list">
 						<div class="col-6 event-list-item" onclick="showRecordPlayer()">
-							<p>March 9th, 2017</p>
+							<div class="single-event" id="searched"></div>
+
+
+							<!-- <p>March 9th, 2017</p>
 							<img class="rounded-circle" src="assets/metal.png">
 							<p>MARGO PRICE</p>
-							<p>Observatory North Park</p>
+							<p>Observatory North Park</p> -->
 						</div>
-						<div class="col-6 event-list-item">
-							<p id="data-date"</p>
-							
-							<p id="data-eventName"></p>
-							<p id="data-venue"></p>
+<style type="text/css">
+	.local-event{
+		display: inline block;
+	}
+	.info-event{
+		border: 2px solid black;
+		background-color: grey;
+		text-align: left;
+	}
+	.artist-pic{
+		size: 180px;
+	}
+</style>
+						
+					
+
+							<div class="col-6 event-list-item">
+							<div>
+									<p id="data-date"></p>	
+									<p id="data-eventName"></p>
+									<p id="data-venue"></p>
+							</div>
+							<div>
+								<img src="" id="dImg">
+							</div>
 						</div>
-						<div>
-							<img src="" id="dImg">
-						</div>
-						<div class="col-6 event-list-item">
-							<p id="data-date"</p>
-							<img class="rounded-circle" src="">
-							<p id="data-eventName"></p>
-							<p id="data-venue"></p>
+						
+						<div class="onload-single-event">
+							<div>
+								<img src="" id="lImg">
+							</div>
 						</div>
 
 					</section>
@@ -78,16 +98,16 @@
 							<a class="col-2" id="heart" href="#heart"><i class="fa fa-heart" onclick="showMyList()"></i></a>
 							<section class="col-10">
 								<div>
-									<p class="event-detail">Artist:</p><span></span>
+									<p class="detail-title">Artist:</p><span></span>
 								</div>
 								<div>
 									<p class="event-detail">Genre:</p><span></span>
 								</div>
 								<div>
-									<p class="event-detail">Date in San Diego:</p><span></span>
+									<p class="detail-date">Date in San Diego:</p><span></span>
 								</div>
 								<div>
-									<p class="event-detail">Venue:</p><span></span>
+									<p class="detail-venue">Venue:</p><span></span>
 								</div>
 								<div>
 									<p class="event-detail">More:</p><span id="citySearch"></span>
