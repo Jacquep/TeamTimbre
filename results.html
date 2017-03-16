@@ -24,19 +24,14 @@
 		  				<p>Hook me up with some live tunes in:</p>
 		  			</div>
 		  				<div class="col-6 dropdown" id="user-location">
-						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alphabet City
+						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">America's Finest City
 						  </button>
 						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-						    <a class="dropdown-item" id="metro" onclick="clickSanDiegoMetro()" href="#">San Diego Metro</a>
-						    <a class="dropdown-item" onclick="clickNorthCoastal()" href="#">North County Costal</a>					
-						    <a class="dropdown-item" onclick="clickNorthInland()" href="#">North County Inland</a>
-						    <a class="dropdown-item" href="#">City</a>
-						    <a class="dropdown-item" href="#">City</a>
-						    <a class="dropdown-item" href="#">City</a>
-						    <a class="dropdown-item" href="#">City</a>
-						    <a class="dropdown-item" href="#">City</a>
-
+						    <button class="dropdown-item selection-location" id="metro" data-attribute="92101">San Diego Metro</button>
+						    <button class="dropdown-item selection-location" id="coastal" data-attribute="92011">North County Costal</button>			
+						    <button class="dropdown-item selection-location" id="noinland" data-attribute="92070">North County Inland</button>
+						     <button class="dropdown-item selection-location" id="east" data-attribute="91901">East County</button>
+						      <button class="dropdown-item selection-location" id="southbay" data-attribute="92154">South Bay</button>
 						  </div>
 					 	</div>					
 					</div>
@@ -47,16 +42,14 @@
 			<div class="container-fluid">
 				<div class="row mt-3">
 					<section class="col-6 push-3 event-list" id="event-list">
-						<div class="col-6 event-list-item" onclick="showRecordPlayer()">
+						<div class="col-6 event-list-item" id="launchRecord" onclick="showRecordPlayer()">
 							<div class="single-event" id="searched"></div>
-
-
-							<!-- <p>March 9th, 2017</p>
-							<img class="rounded-circle" src="assets/metal.png">
-							<p>MARGO PRICE</p>
-							<p>Observatory North Park</p> -->
+								<p id="data-date">March 9th, 2017</p>
+								<img class="rounded-circle" src="assets/metal.png">
+								<p id="data-eventName">MARGO PRICE</p>
+								<p id="data-venue">Observatory North Park</p>
 						</div>
-<style type="text/css">
+<!-- <style type="text/css">
 	.local-event{
 		display: inline block;
 	}
@@ -68,27 +61,7 @@
 	.artist-pic{
 		size: 180px;
 	}
-</style>
-						
-					
-
-							<div class="col-6 event-list-item">
-							<div>
-									<p id="data-date"></p>	
-									<p id="data-eventName"></p>
-									<p id="data-venue"></p>
-							</div>
-							<div>
-								<img src="" id="dImg">
-							</div>
-						</div>
-						
-						<div class="onload-single-event">
-							<div>
-								<img src="" id="lImg">
-							</div>
-						</div>
-
+</style> -->
 					</section>
 					<section class="col-6 mt-3 hidden" id="record-player">
 						<div class="col-10 push-1 record">
@@ -96,21 +69,18 @@
 						</div>
 						<div class="col-12 flexrow">
 							<a class="col-2" id="heart" href="#heart"><i class="fa fa-heart" onclick="showMyList()"></i></a>
-							<section class="col-10">
+							<section class="col-10 info-list">
 								<div>
-									<p class="detail-title">Artist:</p><span></span>
+									<p class="detail-title clrme">Artist:</p><span></span>
+								</div>					
+								<div>
+									<p class="detail-date clrme">Date in San Diego:</p><span></span>
 								</div>
 								<div>
-									<p class="event-detail">Genre:</p><span></span>
+									<p class="detail-venue clrme">Venue:</p><span></span>
 								</div>
 								<div>
-									<p class="detail-date">Date in San Diego:</p><span></span>
-								</div>
-								<div>
-									<p class="detail-venue">Venue:</p><span></span>
-								</div>
-								<div>
-									<p class="event-detail">More:</p><span id="citySearch"></span>
+									<p class="event-url">More:</p><span id="citySearch"></span>
 								</div>
 							</section>
 						</div>
@@ -132,19 +102,15 @@
 			</div>	
 		</main>
 
-
-
-
-
 		<div id="eventAPIreturn"></div>
 
-
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 		<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
-
+		<script type="text/javascript" src="assets/javascript/results.js"></script>
 		<script type="text/javascript" src="assets/javascript/logic2.js"></script>
 		<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
 
-		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 		<script src="https://cdn.rawgit.com/HubSpot/tether/v1.3.4/dist/js/tether.min.js"></script>
@@ -160,3 +126,8 @@
 		</script>	
 	</body>
 </html>
+
+
+
+
+

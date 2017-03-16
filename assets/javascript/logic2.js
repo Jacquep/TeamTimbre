@@ -1,49 +1,42 @@
+// function initialSearch(){
 
+//   window.location.src ="../results.html";
+
+// }
+// initialSearch(clickSanDiegoMetro());
+
+// $("#sd-m").on("click",function(){
+//  initialSearch(clickSanDiegoMetro());
+// })
 //this makes our returned data show up in a global array
 var gData = [];
 
-//set arguments variable ...so far this isnt the solution; need to consolidate
-//  var oArgs = {
-//       app_key: "2CH4skmC8kN48Lr4",
-//       q: "music",
-//       where: "San Diego", 
-//       within: 15,
-//       units: "miles",
-//       page_size: 4,
-//       sort_order: "popularity"
-//    };
-// var northInland = oArgs.postal_code = "92027";
 
-
-
-//ACCESSING THE API
-//i dont know what this is but it makes my API work
-function show_alert(){
   var oArgs = {
-            app_key:"2CH4skmC8kN48Lr4",
-            id: "20218701",
-            page_size: 10,
-  };
-  EVDB.API.call("/events/get", oArgs, function(oData) {
-    // Note: this relies on the custom toString() methods below:still dont know what it means but paranoid to remove
-  });
-}
-
-
-//setting my arguments to return data
-function clickSanDiegoMetro(){
-   var oArgs = {
       app_key: "2CH4skmC8kN48Lr4",
       q: "music",
       where: "San Diego", 
-      postal_code:"92101",
+      //postal_code:"92101",
       within: 15,
       units: "miles",
-      page_size: 6,
+      page_size: 10,
       sort_order: "popularity"
    };
 
+$(".selection-location").on("click", function(e){
+  e.preventDefault();
+  $(".single-event").empty();
+  var attrData = $(this).data();
+  selectMetroByZipcode(attrData.attribute);
+});
 
+
+//setting my arguments to return data
+function selectMetroByZipcode(zipcode){
+   
+   oArgs.where = zipcode;
+   console.log(oArgs);
+   //window.location.src ="../results.html";
 
 
    //api call plus  console checking of info
@@ -59,13 +52,16 @@ function clickSanDiegoMetro(){
     //iterate through the search results an return the results as objects into a global array
     for (var i = 0; i < app.events.event.length; i++) {
 
+      //if()
+
+
     gData.push({
     city: app.events.event[i].city_name,
     venue: app.events.event[i].venue_name,
     title: app.events.event[i].title,
     artist: app.events.event[i].performers.performer.name,//this goes to itunes
     when: app.events.event[i].start_time,
-    //url: app.events.event[0].url,
+    url: app.events.event[i].url,
     imageStr: app.events.event[i].image.medium.url}),
     
     console.log(gData[i]);
@@ -86,7 +82,7 @@ function clickSanDiegoMetro(){
         var eventResult = $("<div>");
         eventResult.attr("class","local-event")
         
-        //make a div to store the event text/info return
+        //make a div to put inside eventResult to store the event text/info return
         var eventInfo = $("<div>");
         eventInfo.attr("class","info-event");
 
@@ -94,7 +90,7 @@ function clickSanDiegoMetro(){
         var eventDate = $("<p>").text(displayDate);
         var eventTitle = $("<p>").text(gData[i].title); 
         var eventVenue = $("<p>").text(gData[i].venue); 
-         
+        
         // Make an image div for the returned image and 
         var eventImage = $("<img>"); 
 
@@ -114,18 +110,27 @@ function clickSanDiegoMetro(){
         eventImage.appendTo(eventResult);
 
       //send it to the HTML div
-       $(".single-event").prepend(eventResult);
 
+       $(".single-event").prepend(eventResult);
+    
 
         $(".artist-pic").on("click", function(){
           event.preventDefault();
           showRecordPlayer();
+
       //this isnt working bc the image is just a URL, not accesing the api, im only getting 1st btn info; maybe import the itunes info here
             $(".detail-date").append(eventDate);
             $(".detail-title").append(eventTitle);
             $(".detail-venue").append(eventVenue);
+            $(".event-url").append(gData[i].url);
         // //$(".detail-genre").append(gData[i].genre)
         });
+  }
+  });
+}
+
+
+
 //ITUNES API CALLING
   //  $.getJSON(
   //     'https://itunes.apple.com/search?term=the+cure&limit=25&callback=?', 
@@ -143,7 +148,7 @@ function clickSanDiegoMetro(){
   
     
 
-    // //first try html grabs
+    // //first try html grabs>>>> this was only returning 1 object
     // $("#city_search").html("<br>Event Location : " + gData[i].city + "<br>" );
     
     // $("#data-date").html(displayDate);
@@ -155,23 +160,20 @@ function clickSanDiegoMetro(){
     // //$("#data-image").append("<img src='" + gData[i].imageStr + "' width='180' height='180'>");
     
     // console.log(gData[i].imageStr);
-    }
-  });
-}
-// function clickNorthCoastal(){
-//    var oArgs = {
-//       app_key: "2CH4skmC8kN48Lr4",
-//       q: "music",
-//       where: "San Diego", 
-//       postal_code:"92011",
-//       within: 10,
-//       units: "miles",
-//       page_size: 10,
-//       sort_order: "popularity",
-//    };
-   
+  
+ 
+//show record-player when user clicks event
+    //   function showRecordPlayer() {
+    //       document.getElementById("record-player").style.display = "block";
+    //   }
+    //   //show my-list when user clicks heart
+    //   function showMyList() {
+    //       document.getElementById("my-list-drawer").style.display = "block";
+    //       }
+    // $("#record-player").on("click", function(){
+    //   $(".info-list").clear();
 
-
+    // });
 
 
 
