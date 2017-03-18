@@ -63,20 +63,20 @@ function logOutUser() {
 //moving this to the firebase storage
 $(document).ready(function() {
   
-  $("#area-of-interest").on("click", function () {
-   
-    var userRegion = $('#area-of-interest option:selected').text();
-    console.log(userRegion);
+ $("#area-of-interest").on("click", function () {
+ 
+   var userRegion = $('#area-of-interest option:selected').text();
+   console.log(userRegion);
 
-    var currentUser = firebase.auth().currentUser.uid;
+   var currentUser = firebase.auth().currentUser.uid;
 
-    if (userRegion !== "Select your Region of Interest") {
+   if (userRegion !== "Select your Region of Interest") {
 
-      window.location.href = 'results.html' + '#' + userRegion + '#' + currentUser;
+     window.location.href = 'results.html' + '#' + userRegion + '#' + currentUser;
 
-    }
+   }
 
-  });
+ });
 
   //login information
   $("#validate-user-btn").on("click", function (event) {

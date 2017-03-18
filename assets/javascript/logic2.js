@@ -23,7 +23,16 @@ var gData = [];
     var attrData = $(this).data();
     selectMetroByZipcode(attrData.attribute);
 });
+$(function() {
+   var attrData = window.location.hash.substring(1,6);
+   console.log(attrData);
 
+   selectMetroByZipcode(attrData.attribute);
+
+   var userKey = window.location.hash.substring(8);
+   console.log(userKey);
+   
+});
 
 //setting my arguments to return data
 function selectMetroByZipcode(zipcode){
@@ -198,8 +207,35 @@ function selectMetroByZipcode(zipcode){
   });
 }
 
+//ITUNES API CALLING
+
+  $("#play-song").on("click"),function(event){
+
+    var artist = $("play-song").attr("data-artist").val();
+
+    var songStr = artist.split(" ").join("+");
+
+   
 
 
+    $.getJSON(
+      'https://itunes.apple.com/search?term=' + songStr + '&limit=25&callback=?', 
+      function iTunesCall( data ) {
+
+         myData = data;
+         console.log(data);
+         console.log(myData.results[0].previewUrl);
+       
+   var fSound = myData.results[0].previewUrl;
+
+         var sound = new Audio(fSound);
+         
+   sound.play();
+      
+
+      });
+
+  }
 //
 
 
