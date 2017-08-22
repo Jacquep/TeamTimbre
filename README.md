@@ -1,2 +1,2 @@
-# TeamTimbre
-group project #1
+# Timbre
+Music Discovery Application
