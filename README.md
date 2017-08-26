@@ -1,9 +1,6 @@
 # Timbre
 
-### Synopsis
-***
-
-A JavaScript local live music event discovery application that uses the Eventful api to search for local live music.
+### A JavaScript local live music event discovery application that uses the Eventful api to search for local live music.
 
 ***
 
