@@ -12,10 +12,10 @@ firebase.initializeApp(config)
 // Create a variable to reference the database
 var database = firebase.database()
 
-// Create variable for current user data
+// store current user data
 var currentUser = {}
 
-// Created variable to store current user's unique ID#
+// store current user's unique ID#
 var userId = currentUser.uid
 
 console.log(currentUser.uid)
@@ -44,7 +44,6 @@ firebase
 // }
 //} ------- END DISABLED FX ------------
 
-// A function for logging out the user
 function logOutUser() {
   event.preventDefault()
 
