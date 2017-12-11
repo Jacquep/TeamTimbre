@@ -125,7 +125,7 @@ body {
 /*This is from Sodabar*/
 
 .eventBlock.new {
-	background: url(../site-bg-ivory.jpg) repeat scroll 0 0 #fef9e6;
+	background: url(../images/site-bg-ivory.jpg) repeat scroll 0 0 #fef9e6;
 }
 .eventBlock.alt {
 	background: #fefcf2;
@@ -261,7 +261,7 @@ body {
 	float: left;
 	display: inline;
 	width: 46px;
-	background: url("../date.gif") repeat-x 0 0;
+	background: url("../images/date.gif") repeat-x 0 0;
 	min-height: 103px;
 	color: #fff;
 	font-family: 'ITCAvantGardeGothicDemiRg', Verdana, Geneva, sans-serif;
@@ -305,7 +305,7 @@ body {
 	left: 0;
 	width: 5px;
 	height: 103px;
-	background: url("../date-dots.gif") no-repeat 0 0;
+	background: url("../images/date-dots.gif") no-repeat 0 0;
 	z-index: 1;
 }
 .eventDate-right {
@@ -314,7 +314,7 @@ body {
 	right: 0;
 	width: 5px;
 	height: 103px;
-	background: url("../date-dots.gif") no-repeat 0 0;
+	background: url("../images/date-dots.gif") no-repeat 0 0;
 	z-index: 1;
 }
 .eventName {
