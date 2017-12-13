@@ -1,5 +1,5 @@
 //BRIANS WORK
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+
 
    $.getJSON(
       'https://itunes.apple.com/search?term=the+cure&limit=25&callback=?', 

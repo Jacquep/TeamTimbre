@@ -1,13 +1,13 @@
-// Initialize Firebase
-var config = {
-  apiKey: 'AIzaSyCax75le3dd4yc1D8Mz5gHxhGRh48e_zic',
-  authDomain: 'timbre-4e4bc.firebaseapp.com',
-  databaseURL: 'https://timbre-4e4bc.firebaseio.com',
-  projectId: 'timbre-4e4bc',
-  storageBucket: 'timbre-4e4bc.appspot.com',
-  messagingSenderId: '988935523367'
-}
-firebase.initializeApp(config)
+// // Initialize Firebase
+// var config = {
+//   apiKey: 'AIzaSyCax75le3dd4yc1D8Mz5gHxhGRh48e_zic',
+//   authDomain: 'timbre-4e4bc.firebaseapp.com',
+//   databaseURL: 'https://timbre-4e4bc.firebaseio.com',
+//   projectId: 'timbre-4e4bc',
+//   storageBucket: 'timbre-4e4bc.appspot.com',
+//   messagingSenderId: '988935523367'
+// }
+// firebase.initializeApp(config)
 
 // Create a variable to reference the database
 var database = firebase.database()

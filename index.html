@@ -142,12 +142,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
     <!-- Vue -->
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+   <!--  <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
     <!-- import firebase.js -->
-    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+   <!--  <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script> -->
     <!-- VueFire -->
     <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
-
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     
 
     <script>
@@ -170,10 +170,24 @@
 
         $("#login-btn").on("click", selectLogin); 
 
+
+
+        var config = {
+  apiKey: 'AIzaSyCax75le3dd4yc1D8Mz5gHxhGRh48e_zic',
+  authDomain: 'timbre-4e4bc.firebaseapp.com',
+  databaseURL: 'https://timbre-4e4bc.firebaseio.com',
+  projectId: 'timbre-4e4bc',
+  storageBucket: 'timbre-4e4bc.appspot.com',
+  messagingSenderId: '988935523367'
+}
+firebase.initializeApp(config)
+
+
     </script>
 
     <script type="text/javascript" src="http://api.eventful.com/js/api"></script>
     <script type="text/javascript" src="assets/javascript/index-style.js"></script>
+   
 
 
 

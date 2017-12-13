@@ -12,7 +12,7 @@
 // Create a variable to reference the database
 //var database = firebase.database();
 
-var gData = [];
+var gData = []
 
 //ACCESSING THE API
 //i dont know what this is?
@@ -20,11 +20,11 @@ function show_alert() {
   var oArgs = {
     app_key: '2CH4skmC8kN48Lr4',
     id: '20218701',
-    page_size: 10,
-  };
+    page_size: 10
+  }
   EVDB.API.call('/events/get', oArgs, function(oData) {
     // Note: this relies on the custom toString() methods below
-  });
+  })
 }
 function clickBtn() {
   var oArgs = {
@@ -33,16 +33,16 @@ function clickBtn() {
     where: 'Solana Beach',
     //postal_code:"92109",
     page_size: 10,
-    sort_order: 'popularity',
-  };
+    sort_order: 'popularity'
+  }
 
   EVDB.API.call('/events/search', oArgs, function(oData) {
-    var app = oData;
-    console.log(app);
-    console.log(app.events.event[0].city_name);
-    console.log(app.events.event[0].venue_name);
-    console.log(app.events.event[0].postal_code);
-    console.log(app.total_items);
+    var app = oData
+    console.log(app)
+    console.log(app.events.event[0].city_name)
+    console.log(app.events.event[0].venue_name)
+    console.log(app.events.event[0].postal_code)
+    console.log(app.total_items)
 
     for (var i = 0; i < app.total_items - 1; i++) {
       //QA
@@ -55,24 +55,24 @@ function clickBtn() {
         //artist: app.events.event[i].performers.performer.name,//this goes to itunes
         when: app.events.event[i].start_time,
         //url: app.events.event[0].url,
-        imageStr: app.events.event[i].image.medium.url,
-      });
+        imageStr: app.events.event[i].image.medium.url
+      })
 
-      console.log(gData[i]);
+      console.log(gData[i])
     }
-    $('#test').html('<br>Event Location : ' + gData[i].city + '<br>');
+    $('#test').html('<br>Event Location : ' + gData[i].city + '<br>')
 
-    $('#test1').html(gData[i].when);
-    $('#test2').html(gData[i].title);
-    $('#test3').html(gData[i].venue);
+    $('#test1').html(gData[i].when)
+    $('#test2').html(gData[i].title)
+    $('#test3').html(gData[i].venue)
     //$("#test4").html("<br>" + eventListing.url + "<br>" );
     $('#test5').append(
-      "<img src='" + gData[i].imageStr + "' width='180' height='180'>",
-    );
+      "<img src='" + gData[i].imageStr + "' width='180' height='180'>"
+    )
 
     //}
     // Note: this relies on the custom toString() methods below
-  });
+  })
 }
 
 function launchSearch() {
@@ -80,7 +80,7 @@ function launchSearch() {
   $('#launch-search').on('click', function() {
     //url request to the eventful API(this will access our events)
     var eventfulURL =
-      'http://api.eventful.com/json/events/search?app_key=2CH4skmC8kN48Lr4&q=music';
+      'http://api.eventful.com/json/events/search?app_key=2CH4skmC8kN48Lr4&q=music'
 
     //grab our user input by building an onclick submit to the API
     //must reference the parameters: location by zip?, music,
@@ -93,14 +93,14 @@ function launchSearch() {
     //run ajax to send a request to the eventful server
     $.ajax({
       url: eventfulURL,
-      method: 'GET',
+      method: 'GET'
     })
       //.done function will run what we need to run after we get the API data
       .done(function(response) {
-        console.log(response);
+        console.log(response)
         //in here put all the gif display/reporting that will happen
-        var results = response.data;
-        console.log(results);
+        var results = response.data
+        console.log(results)
 
         //create a loop to iterate through out return
         //run through the results page
@@ -114,9 +114,9 @@ function launchSearch() {
           eventLink: '',
 
           artistImg: '',
-          songLink: '',
-        };
-      });
-  });
+          songLink: ''
+        }
+      })
+  })
 }
-launchSearch();
+launchSearch()

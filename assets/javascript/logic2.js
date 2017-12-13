@@ -14,7 +14,7 @@ var oArgs = {
   sort_order: 'popularity'
 }
 
-$('.selection-location').on('click', function(e) {
+$('.dropdownMenuButton').on('click', function(e) {
   e.preventDefault()
   $('#event-list').empty()
   var attrData = $(this).data()
