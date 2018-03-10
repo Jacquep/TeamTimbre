@@ -41,19 +41,31 @@
         </div>
     </header>
     
-    <div id="page-content" class="container-fluid vertical-center">
+    <div class="content">
+
+        <div class="row absolute-center">
         
         <!-- This <div> containing logo & tagline are page-permanent -->
-        <div class="col-12 text-center">            
+        <div class="d-flex p-2 align-items-center">            
             <!-- Main Logo -->
             <img src="assets/images/logo.png" class="img-fluid">
-            <!-- Tagline -->
-            <h4>Hooking you up with local live music</h4>
-            <br>
-        </div>
         
+            
+        </div>
+         </div>
+        
+        <div class="row absolute-center">
+             <div class="d-flex p-2 align-items-center">   
+         <!-- Tagline -->
+            <h4>Hooking you up with local live music</h4>
+        </div>
+        </div>
+
+
+        <div class="row absolute-center">
+             <div class="d-flex p-2 align-items-center">  
         <!-- This <div> loads on inital pageload, but hides after user clicks either buttons -->    
-        <div id="pageload-buttons" class="col-12 text-center">
+        <div id="pageload-buttons" class="form-inline">
             <!-- Log in button -->
             <button type="button" id="login-btn" class="btn btn-warning">
                 <i class="material-icons">vpn_key</i>
@@ -65,11 +77,12 @@
                 <i class="material-icons">create</i>
                 <span class="align-text-bottom">&nbsp;SIGN UP</span>
             </button>
+</div>
         </div>
-        
+        </div>
         <!-- This <div> shows itself if user clicks #login-btn above -->   
-        <div class="col-12 hidden" id="login-form">
-            <form class="form-inline col-10 mx-auto">
+        <div class="hidden" id="login-form">
+            <form class="form-inline col-12">
                 <div class="form-group">
                     <label class="sr-only">Email</label>
                     <input type="text" class="form-control" id="email-login" placeholder="E-mail">
@@ -77,9 +90,15 @@
                 <div class="form-group">
                     <label class="sr-only">Password</label>
                     <input type="password" class="form-control" id="password-login" placeholder="Password">
-                    
                 </div>
+
+             
                 <button type="submit" class="btn btn-warning" id="validate-user-btn">LOGIN</button>
+           
+            
+             
+
+
                 <div class="col-12 mx-auto hidden" id="errorMsg">No User Found - Sign Up Or Try Again</div>
             </form>
         </div>
@@ -118,6 +137,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <!-- Regional Dropdown Menu --> 
@@ -131,7 +151,7 @@
                <option value="92154">South Bay</option>
            </select>
         </div>
-        
+     
     </div>
         
 	
@@ -173,14 +193,14 @@
 
 
         var config = {
-  apiKey: 'AIzaSyCax75le3dd4yc1D8Mz5gHxhGRh48e_zic',
-  authDomain: 'timbre-4e4bc.firebaseapp.com',
-  databaseURL: 'https://timbre-4e4bc.firebaseio.com',
-  projectId: 'timbre-4e4bc',
-  storageBucket: 'timbre-4e4bc.appspot.com',
-  messagingSenderId: '988935523367'
-}
-firebase.initializeApp(config)
+          apiKey: 'AIzaSyCax75le3dd4yc1D8Mz5gHxhGRh48e_zic',
+          authDomain: 'timbre-4e4bc.firebaseapp.com',
+          databaseURL: 'https://timbre-4e4bc.firebaseio.com',
+          projectId: 'timbre-4e4bc',
+          storageBucket: 'timbre-4e4bc.appspot.com',
+          messagingSenderId: '988935523367'
+        }
+        firebase.initializeApp(config)
 
 
     </script>

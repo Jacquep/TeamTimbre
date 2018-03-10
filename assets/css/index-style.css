@@ -1,9 +1,9 @@
-body { 
-  	font-family: 'Permanent Marker', cursive, Arial;
- 	background: url("../images/home.jpeg") no-repeat center center fixed; 
-	  	-webkit-background-size: cover;
-	  	-moz-background-size: cover;
-	  	-o-background-size: cover;
+body {
+	font-family: 'Permanent Marker', cursive, Arial;
+	background: url("../images/home.jpeg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
 	margin: 0;
 	padding: 0;
@@ -12,19 +12,35 @@ body {
 	text-shadow: 5px 5px 5px #353535;
 }
 
-nav > a {
-	color: #fff;
-	font-size: 18px;	
+.content {
+	max-width: 500px;
+	margin: auto;
+	padding: 10px;
 }
 
+.absolute-center {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+nav > a {
+	color: #fff;
+	font-size: 18px;
+}
 
 nav > a:hover {
 	cursor: pointer;
-	color: #dc4d13;	
-	text-decoration: none;	
+	color: #dc4d13;
+	text-decoration: none;
 }
 
-nav > a:last-child {  border-left: solid 1px #fff;  }
+nav > a:last-child {
+	border-left: solid 1px #fff;
+}
 
 #page-content {
 	margin-top: 140px;
@@ -41,7 +57,7 @@ nav > a:last-child {  border-left: solid 1px #fff;  }
 
 .btn:hover {
 	cursor: pointer;
-	background-color: #dc4d13;	
+	background-color: #dc4d13;
 }
 
 #login-btn {
@@ -49,17 +65,18 @@ nav > a:last-child {  border-left: solid 1px #fff;  }
 	margin-bottom: 5px;
 }
 
-#email-login, #password-login {
+#email-login,
+#password-login {
 	margin-right: 5px;
 }
 
-form > button.btn { 
-	padding: 8px 18px; 
-	margin: 0;
+form > button.btn {
+	padding: 8px 18px;
+	margin: 4px;
 	font-size: 17px;
 }
 
-#login-form > form { width: 585px }
+/*#login-form > form { width: 585px }*/
 
 #errorMsg {
 	background-color: #f44141;
@@ -74,7 +91,9 @@ form > button.btn {
 	opacity: 0.9;
 }
 
-.hidden { display: none; }
+.hidden {
+	display: none;
+}
 
 .modal-body {
 	font-family: Helvetica, Arial;
@@ -89,32 +108,40 @@ form > button.btn {
 	margin-bottom: 0px;
 }
 
-.modal-header {	background-color: #eee; }
+.modal-header {
+	background-color: #eee;
+}
 
-.modal-title { 
+.modal-title {
 	color: #333;
-	text-shadow: none; 
+	text-shadow: none;
 }
 
 img#modal-hand {
-
-    -webkit-animation-name: modalHand; 
-    -webkit-animation-duration: 1s; 
-    animation-name: modalHand;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
+	-webkit-animation-name: modalHand;
+	-webkit-animation-duration: 1s;
+	animation-name: modalHand;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
 }
 
-	@-webkit-keyframes modalHand {
-	    from {transform: rotate(-10deg);}
-	    to {transform: rotate(10deg);
-	    }
+@-webkit-keyframes modalHand {
+	from {
+		transform: rotate(-10deg);
 	}
+	to {
+		transform: rotate(10deg);
+	}
+}
 
-	@keyframes modalHand {
-	    from {transform: rotate(-10deg);}
-	    to {transform: rotate(10deg);}
+@keyframes modalHand {
+	from {
+		transform: rotate(-10deg);
 	}
+	to {
+		transform: rotate(10deg);
+	}
+}
 
 #email-validate {
 	color: #ff0000;
@@ -123,24 +150,30 @@ img#modal-hand {
 /*Adjustments for smaller screens*/
 
 @media screen and (max-width: 769px) and (min-width: 377px) {
-	
-	#page-content {	vertical-align: middle; }
+	#page-content {
+		vertical-align: middle;
+	}
 
-	#login-form > form { width: 260px }
-	
-	#login-form > form > button { margin: 0 auto; }
-	
+	#login-form > form {
+		width: 260px;
+	}
+
+	#login-form > form > button {
+		margin: 0 auto;
+	}
+
 	input[type=text] {
 		margin-right: 0px;
 		margin-bottom: 10px;
-	}	
-
+	}
 }
 
 @media screen and (max-width: 376px) {
+	#page-content {
+		vertical-align: middle;
+	}
 
-	#page-content {	vertical-align: middle; }
-
-	#login-form > form > button { margin: 0 auto; }
-
+	#login-form > form > button {
+		margin: 0 auto;
+	}
 }
